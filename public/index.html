@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense & Budget Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="app">
+        <header class="header">
+            <div>
+                <h1>Expense & Budget Tracker</h1>
+                <p>Manage your money. Build better habits.</p>
+            </div>
+            <span class="badge">Personal Finance</span>
+        </header>
+
+        <section class="summary">
+            <div class="card income-card">
+                <p>Total Income</p>
+                <h2 id="totalIncome">₹0.00</h2>
+            </div>
+
+            <div class="card expense-card">
+                <p>Total Expenses</p>
+                <h2 id="totalExpense">₹0.00</h2>
+            </div>
+
+            <div class="card balance-card">
+                <p>Available Balance</p>
+                <h2 id="balance">₹0.00</h2>
+            </div>
+
+            <div class="card budget-card">
+                <p>Monthly Budget</p>
+                <h2 id="budgetAmount">₹0.00</h2>
+                <p id="budgetStatus">Set your monthly limit</p>
+            </div>
+        </section>
+
+        <main class="main-grid">
+            <section class="panel">
+                <h2>Add Transaction</h2>
+
+                <form id="transactionForm">
+                    <label for="type">Transaction Type</label>
+                    <select id="type" required>
+                        <option value="expense">Expense</option>
+                        <option value="income">Income</option>
+                    </select>
+
+                    <label for="amount">Amount (₹)</label>
+                    <input id="amount" type="number"
+                           min="0.01" step="0.01"
+                           placeholder="Enter amount" required>
+
+                    <label for="category">Category</label>
+                    <select id="category" required>
+                        <option value="Food">Food</option>
+                        <option value="Transport">Transport</option>
+                        <option value="Education">Education</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Bills">Bills</option>
+                        <option value="Salary">Salary</option>
+                        <option value="Business">Business</option>
+                        <option value="Other">Other</option>
+                    </select>
+
+                    <label for="description">Description</label>
+                    <input id="description" type="text"
+                           placeholder="Enter description" required>
+
+                    <label for="date">Date</label>
+                    <input id="date" type="date" required>
+
+                    <button type="submit">Add Transaction</button>
+                </form>
+            </section>
+
+            <section class="panel">
+                <h2>Monthly Budget</h2>
+                <p>Set a limit for your monthly expenses.</p>
+
+                <form id="budgetForm">
+                    <label for="monthlyBudget">Budget Amount (₹)</label>
+                    <input id="monthlyBudget" type="number"
+                           min="0.01" step="0.01"
+                           placeholder="Enter monthly budget" required>
+                    <button type="submit">Save Budget</button>
+                </form>
+
+                <div class="chart-container">
+                    <h3>Expenses by Category</h3>
+                    <canvas id="expenseChart"></canvas>
+                </div>
+            </section>
+        </main>
+
+        <section class="panel history">
+            <div class="history-heading">
+                <h2>Transaction History</h2>
+                <button id="exportBtn" type="button" class="secondary">
+                    Export CSV
+                </button>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Type</th>
+                            <th>Category</th>
+                            <th>Description</th>
+                            <th>Amount</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="transactionList"></tbody>
+                </table>
+            </div>
+            <p id="emptyMessage">No transactions yet. Add your first transaction!</p>
+        </section>
+
+        <footer>
+            Expense & Budget Tracker | Full Stack Development Project
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

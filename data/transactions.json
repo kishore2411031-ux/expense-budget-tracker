@@ -1,0 +1,18 @@
+[
+  {
+    "id": "731156b3-a4cd-4b8e-81c1-ef99a08010cf",
+    "type": "income",
+    "amount": 2000,
+    "category": "Food",
+    "description": "nil",
+    "date": "2026-10-22"
+  },
+  {
+    "id": "79206962-5b11-440a-84af-31e2740c8252",
+    "type": "expense",
+    "amount": 12000,
+    "category": "Other",
+    "description": "petrol",
+    "date": "2026-10-22"
+  }
+]
